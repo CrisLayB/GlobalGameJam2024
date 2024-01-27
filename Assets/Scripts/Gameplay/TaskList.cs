@@ -7,6 +7,7 @@ public class TaskList : MonoBehaviour
 {
     [SerializeField] private UITaskMark[] uiTasks;
     private bool[] doneTasks;
+    private Animator animator;
     
     // Start is called before the first frame update
     void Start()
@@ -23,6 +24,10 @@ public class TaskList : MonoBehaviour
                 doneTasks[0] = false;
             }
         }        
+
+        animator = GetComponent<Animator>();
+
+        if(animator == null) Debug.Log("Error: No se encontro un animator en la TaskList");
     }
 
     // Update is called once per frame
@@ -50,5 +55,10 @@ public class TaskList : MonoBehaviour
         }
 
         doneTasks[taskNum] = true;
+    }
+
+    public void ShowTaskList(bool show)
+    {
+        animator.SetBool("showTaskList", show);
     }
 }

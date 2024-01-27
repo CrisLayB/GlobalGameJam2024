@@ -26,6 +26,8 @@ public class PlayerController : MonoBehaviour
     /// - Linterna
     [SerializeField] private Light flashlight;
     private bool isOn = true;
+    private TaskList taskList;
+    private bool showTaskList = false;
 
     // /// - Para mostrar información
     // [SerializeField] private GameObject objectText;
@@ -33,6 +35,26 @@ public class PlayerController : MonoBehaviour
 
     //--------------------------------------------------------------------------------------
     /// -→ Métodos
+
+    private void Start() 
+    {
+        InitializeTaskList();
+    }
+
+    private void InitializeTaskList()
+    {
+        GameObject tasksFound = GameObject.Find("TaskList");
+
+        if(tasksFound == null) 
+        {
+            Debug.Log("Error: No se encontro el GameObject Tasklist");
+            return;
+        }
+
+        taskList = tasksFound.GetComponent<TaskList>();
+
+        if(taskList == null) Debug.Log("Error: No se encontro el componente TaskList en el gameobject Tasklist");
+    }
 
     /// <summary>
     /// Update es llamado por cada frame
@@ -48,6 +70,13 @@ public class PlayerController : MonoBehaviour
             // Audio de encender o apagar
             // AudioClipName name = !isOn ? AudioClipName.OffSound : AudioClipName.OnSound;
             AudioManeger.Play(AudioClipName.FlashLightSound);
+        }
+
+        // Mostrar o ocultar la lista de tareas
+        if(Input.GetKeyDown(KeyCode.Q))
+        {
+            showTaskList = !showTaskList;
+            taskList.ShowTaskList(showTaskList);
         }
 
         // De Prueba
@@ -83,17 +112,14 @@ public class PlayerController : MonoBehaviour
     }
 
     private void MarkTask(TaskName taskEnum)
-    {
-        GameObject tasksFound = GameObject.Find("TaskList");
-
-        if(tasksFound == null) Debug.Log("Error: No se encontro el GameObject Tasklist");
-
-        TaskList taskList = tasksFound.GetComponent<TaskList>();
-
-        if(taskList == null) Debug.Log("Error: No se encontro el componente TaskList en el gameobject Tasklist");
-
+    {        
         taskList.TaskAllreadyDone(taskEnum);
     }
+
+    // private void ShowOrHideTaskList()
+    // {
+
+    // }
 
     /// <summary>
     /// OnTriggerExit es llamado cuando el collier se matiene tocando el trigger.
