@@ -48,7 +48,51 @@ public class PlayerController : MonoBehaviour
             // Audio de encender o apagar
             // AudioClipName name = !isOn ? AudioClipName.OffSound : AudioClipName.OnSound;
             AudioManeger.Play(AudioClipName.FlashLightSound);
-        }  
+        }
+
+        // De Prueba
+        if(Input.GetKey(KeyCode.Z))
+        {
+            MarkTask(TaskName.GreetTheBoss);
+        }
+
+         if(Input.GetKey(KeyCode.X))
+        {
+            MarkTask(TaskName.UnplugTheBath);
+        }
+
+         if(Input.GetKey(KeyCode.C))
+        { 
+            MarkTask(TaskName.CleanTheWindows);
+        }
+
+         if(Input.GetKey(KeyCode.V))
+        {
+            MarkTask(TaskName.PrepareCoffee);
+        }
+
+         if(Input.GetKey(KeyCode.B))
+        {
+            MarkTask(TaskName.EcuationLife);
+        }
+
+         if(Input.GetKey(KeyCode.N))
+        {
+            MarkTask(TaskName.FinalTaskLight);
+        }
+    }
+
+    private void MarkTask(TaskName taskEnum)
+    {
+        GameObject tasksFound = GameObject.Find("TaskList");
+
+        if(tasksFound == null) Debug.Log("Error: No se encontro el GameObject Tasklist");
+
+        TaskList taskList = tasksFound.GetComponent<TaskList>();
+
+        if(taskList == null) Debug.Log("Error: No se encontro el componente TaskList en el gameobject Tasklist");
+
+        taskList.TaskAllreadyDone(taskEnum);
     }
 
     /// <summary>
