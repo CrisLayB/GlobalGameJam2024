@@ -2,7 +2,9 @@
     "files.exclude": {
         "**/.DS_Store": true,
         "**/.git": true,
+        "**/.vs": true,
         "**/.gitmodules": true,
+        "**/.vsconfig": true,
         "**/*.booproj": true,
         "**/*.pidb": true,
         "**/*.suo": true,
@@ -47,9 +49,32 @@
         "library/": true,
         "obj/": true,
         "Obj/": true,
+        "Logs/": true,
+        "logs/": true,
         "ProjectSettings/": true,
+        "UserSettings/": true,
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "GlobalGameJam2024.sln"
+    "dotnet.defaultSolution": "GlobalGameJam2024.sln",
+    "workbench.colorCustomizations": {
+        "activityBar.activeBackground": "#72de61",
+        "activityBar.background": "#72de61",
+        "activityBar.foreground": "#15202b",
+        "activityBar.inactiveForeground": "#15202b99",
+        "activityBarBadge.background": "#6172de",
+        "activityBarBadge.foreground": "#e7e7e7",
+        "commandCenter.border": "#15202b99",
+        "sash.hoverBorder": "#72de61",
+        "statusBar.background": "#4cd537",
+        "statusBar.foreground": "#15202b",
+        "statusBarItem.hoverBackground": "#38b326",
+        "statusBarItem.remoteBackground": "#4cd537",
+        "statusBarItem.remoteForeground": "#15202b",
+        "titleBar.activeBackground": "#4cd537",
+        "titleBar.activeForeground": "#15202b",
+        "titleBar.inactiveBackground": "#4cd53799",
+        "titleBar.inactiveForeground": "#15202b99"
+    },
+    "peacock.color": "#4cd537"
 }
