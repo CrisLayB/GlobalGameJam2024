@@ -4,15 +4,24 @@ using UnityEngine;
 
 public class GameAudioSource : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    /// <summary>
+    /// Awake es llamado cuando el script es cargado
+    /// </summary>
+    private void Awake()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        // Tenemos que asegurarnos que solo tengas uno de estos
+        // en el game object
+        if(!AudioManeger.Initialized)
+        {
+            // Inicializar el audio maneger y persistir el audio source
+            AudioSource audioSource = gameObject.AddComponent<AudioSource>();
+            AudioManeger.Initialize(audioSource);
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            // Duplicaremos el game object, así que lo destruiremos
+            Destroy(gameObject);
+        }
     }
 }
