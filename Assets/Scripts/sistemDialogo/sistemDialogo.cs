@@ -92,4 +92,10 @@ public class SistemaDialogo : MonoBehaviour
             dialoguePanel.SetActive(false); // Desactiva el panel de diálogo cuando el jugador sale del collider
         }
     }
+
+        public bool IsActive()
+    {
+        return didDialogueStart;
+    }
+
 }
