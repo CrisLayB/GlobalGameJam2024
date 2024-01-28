@@ -17,7 +17,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -26,9 +25,7 @@ public class PlayerController : MonoBehaviour
     /// - Linterna
     [SerializeField] private Light flashlight;
     private bool isOn = true;    
-    private bool showTaskList = false;
-    
-    [SerializeField] private GameObject answers_ecuation_life; 
+    private bool showTaskList = false;    
     [SerializeField] private Manager manager;
 
     //--------------------------------------------------------------------------------------
@@ -36,11 +33,6 @@ public class PlayerController : MonoBehaviour
 
     private void Start() 
     {
-        if(answers_ecuation_life == null)
-        {
-            Debug.Log("Error: No esta adjunto el Game Object de UI Respuestas de ecuacion de la vida");
-        }
-
         if(manager == null)
         {
             Debug.Log("Error: El Manager no esta adjunto con el player Controller");
@@ -53,7 +45,7 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         // + Apagar linterna con un solo click
-        if(Input.GetMouseButtonDown(0))
+        if(Input.GetButtonDown(InputName.Fire1.ToString()))
         {           
             // Encender o apagar
             isOn = !isOn;             
@@ -62,7 +54,7 @@ public class PlayerController : MonoBehaviour
         }
 
         // Mostrar o ocultar la lista de tareas
-        if(Input.GetKeyDown(KeyCode.Q))
+        if(Input.GetButtonDown(InputName.ListButton.ToString()))
         {
             showTaskList = !showTaskList;
             manager.ShowTaskList(showTaskList);
@@ -85,14 +77,18 @@ public class PlayerController : MonoBehaviour
         {            
             if(hitInfo.collider.CompareTag("EcuationLife") && manager.TheTaskIsDone(TaskName.EcuationLife) == 0)
             {                
-                answers_ecuation_life.SetActive(true);
-                manager.EnterEcuationLife();
+                manager.ShowInputInformation("F", "Resuelve la Ecuación de la Vida");
+                if(Input.GetButtonDown(InputName.InteractionButton.ToString()))
+                {
+                    manager.HideInputInformation();
+                    manager.EnterEcuationLife();
+                }
             }
         }
         else
         {
             Debug.DrawRay(camRay.origin, camRay.direction * maxRayDistance, Color.green);
-            answers_ecuation_life.SetActive(false);
+            manager.HideInputInformation();
         }
     }
 }
