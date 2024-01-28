@@ -12,6 +12,7 @@ TagManager:
   - WinCollider
   - Banana
   - Inodoro
+  - Cilindro
   layers:
   - Default
   - TransparentFX
