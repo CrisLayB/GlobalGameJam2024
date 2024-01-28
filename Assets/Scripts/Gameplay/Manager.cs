@@ -22,6 +22,9 @@ public class Manager : MonoBehaviour
     {
         InitializeTaskList();
 
+        if(uiKeyInput == null)
+            Debug.Log("Error: No se asigno la UI en donde se muestra la acción a realizar");
+
         if(ui_answers_ecuation_life == null)
             Debug.Log("Error: No esta adjunto el Game Object de UI Respuestas de ecuacion de la vida");
 
@@ -29,7 +32,7 @@ public class Manager : MonoBehaviour
             Debug.Log("Error: Player no asignado en Manager");
 
         if(cameraEcuationLife == null)
-            Debug.Log("Error: Player no asignado en Manager");
+            Debug.Log("Error: No se asigno la camara para la ecuacion de la vida");
 
         if(selectedAnswerSprite == null)
             Debug.Log("Error: No se agrego un Sprite de Respuesta seleccionada");
