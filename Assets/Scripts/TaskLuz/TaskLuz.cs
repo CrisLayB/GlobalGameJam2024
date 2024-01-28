@@ -10,10 +10,17 @@ public class TaskLuz : MonoBehaviour
     void Update()
     {
         // apagar la luz "f",
-        if (Input.GetKeyDown("f") && interactingObject != null)
-        {
-            ActivateAnimation();
-        }
+        // if (Input.GetKeyDown("f") && interactingObject != null)
+        // {
+        //     // ! Insertar que la task ya esta lista y activar la luz
+        //     GameObject managerFound = GameObject.Find("Manager");
+        //     if(managerFound != null)
+        //     {
+        //         Manager manager = managerFound.GetComponent<Manager>();
+        //         manager.FinishedTask(TaskName.FinalTaskLight);
+        //     }
+        //     ActivateAnimation();
+        // }
     }
 
     private void OnTriggerEnter(Collider other)

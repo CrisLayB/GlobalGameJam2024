@@ -95,9 +95,6 @@ public class PlayerController : MonoBehaviour
                 manager.ShowInputInformation("F", "Destapar el baño");
                 if(Input.GetButtonDown(InputName.InteractionButton.ToString()))
                 {
-                    // Poner animacion de baño
-                    // TaskName.UnplugTheBath
-                    // Task completada
                     StartCoroutine("UnplugTheBathAction");
                 }
             }
@@ -111,6 +108,17 @@ public class PlayerController : MonoBehaviour
             {
                 manager.HideInputInformation();
                 manager.EnterEcuationLife();
+            }
+        }
+
+        // Final Mission Light
+        if(hitInfo.collider.CompareTag("Cilindro") && manager.TheTaskIsDone(TaskName.FinalTaskLight) == 0)
+        {
+            manager.ShowInputInformation("F", "Repara la luz");
+            if(Input.GetButtonDown(InputName.InteractionButton.ToString()))
+            {
+                StartCoroutine("TurnonTheLight");
+                
             }
         }
     }
@@ -135,6 +143,21 @@ public class PlayerController : MonoBehaviour
 
         AudioManeger.Play(AudioClipName.BellDone);
         manager.FinishedTask(TaskName.UnplugTheBath);
+    }
+
+    IEnumerator TurnonTheLight()
+    {
+        GameObject turnOn = GameObject.Find("Cylinder");
+
+        if(turnOn != null)
+        {
+            Animator animTurnOn = turnOn.GetComponent<Animator>();
+            animTurnOn.SetBool("Switch", true);
+        }
+        
+        yield return new WaitForSeconds(3f);
+
+        manager.FinishedTask(TaskName.FinalTaskLight);
     }
 
 }
