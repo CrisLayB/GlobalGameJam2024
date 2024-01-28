@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -373,7 +373,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 15, y: 15}
+  m_SizeDelta: {x: 10, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &107216424
 MonoBehaviour:
@@ -426,7 +426,7 @@ GameObject:
   - component: {fileID: 167383539}
   - component: {fileID: 167383538}
   m_Layer: 5
-  m_Name: Answer1 (1)
+  m_Name: Answer2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -821,10 +821,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 180}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -871,7 +871,6 @@ RectTransform:
   - {fileID: 1504018638}
   - {fileID: 1408643795}
   - {fileID: 528367800}
-  - {fileID: 619946695}
   - {fileID: 189862697}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1027,7 +1026,7 @@ GameObject:
   - component: {fileID: 598759084}
   - component: {fileID: 598759083}
   m_Layer: 5
-  m_Name: Answer1 (2)
+  m_Name: Answer3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1134,50 +1133,6 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 598759081}
-  m_CullTransparentMesh: 1
---- !u!1 &619946694
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 619946695}
-  - component: {fileID: 619946696}
-  m_Layer: 5
-  m_Name: ActionText (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &619946695
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 619946694}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 295645549}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 244, y: 184}
-  m_SizeDelta: {x: 200, y: 50}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &619946696
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 619946694}
   m_CullTransparentMesh: 1
 --- !u!1 &624265439
 GameObject:
@@ -1611,7 +1566,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1408643795
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2039,7 +1994,7 @@ GameObject:
   - component: {fileID: 2054701248}
   - component: {fileID: 2054701247}
   m_Layer: 0
-  m_Name: Camera
+  m_Name: CameraEcuationLife
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2132,13 +2087,69 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1056361638}
     - target: {fileID: 556386068198608989, guid: ec75047abe280f5409cc027e70bd2713, type: 3}
+      propertyPath: actionText
+      value: 
+      objectReference: {fileID: 528367801}
+    - target: {fileID: 556386068198608989, guid: ec75047abe280f5409cc027e70bd2713, type: 3}
       propertyPath: uiKeyInput
       value: 
       objectReference: {fileID: 1408643794}
     - target: {fileID: 556386068198608989, guid: ec75047abe280f5409cc027e70bd2713, type: 3}
+      propertyPath: confirmAnser
+      value: 
+      objectReference: {fileID: 21300000, guid: f88ee8c5eaef9414382c810348e5394b, type: 3}
+    - target: {fileID: 556386068198608989, guid: ec75047abe280f5409cc027e70bd2713, type: 3}
+      propertyPath: keyInputText
+      value: 
+      objectReference: {fileID: 189862698}
+    - target: {fileID: 556386068198608989, guid: ec75047abe280f5409cc027e70bd2713, type: 3}
       propertyPath: cameraEcuationLife
       value: 
       objectReference: {fileID: 2054701245}
+    - target: {fileID: 556386068198608989, guid: ec75047abe280f5409cc027e70bd2713, type: 3}
+      propertyPath: uiAnsers.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 556386068198608989, guid: ec75047abe280f5409cc027e70bd2713, type: 3}
+      propertyPath: selectedAnswerSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f88ee8c5eaef9414382c810348e5394b, type: 3}
+    - target: {fileID: 556386068198608989, guid: ec75047abe280f5409cc027e70bd2713, type: 3}
+      propertyPath: uiAnswers.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 556386068198608989, guid: ec75047abe280f5409cc027e70bd2713, type: 3}
+      propertyPath: uiAnsers.Array.data[0]
+      value: 
+      objectReference: {fileID: 76650449}
+    - target: {fileID: 556386068198608989, guid: ec75047abe280f5409cc027e70bd2713, type: 3}
+      propertyPath: uiAnsers.Array.data[1]
+      value: 
+      objectReference: {fileID: 167383539}
+    - target: {fileID: 556386068198608989, guid: ec75047abe280f5409cc027e70bd2713, type: 3}
+      propertyPath: uiAnsers.Array.data[2]
+      value: 
+      objectReference: {fileID: 598759084}
+    - target: {fileID: 556386068198608989, guid: ec75047abe280f5409cc027e70bd2713, type: 3}
+      propertyPath: unselectedAnswerSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f6ebe8b4fb3b47542adab40431457868, type: 3}
+    - target: {fileID: 556386068198608989, guid: ec75047abe280f5409cc027e70bd2713, type: 3}
+      propertyPath: uiAnswers.Array.data[0]
+      value: 
+      objectReference: {fileID: 76650449}
+    - target: {fileID: 556386068198608989, guid: ec75047abe280f5409cc027e70bd2713, type: 3}
+      propertyPath: uiAnswers.Array.data[1]
+      value: 
+      objectReference: {fileID: 167383539}
+    - target: {fileID: 556386068198608989, guid: ec75047abe280f5409cc027e70bd2713, type: 3}
+      propertyPath: uiAnswers.Array.data[2]
+      value: 
+      objectReference: {fileID: 598759084}
+    - target: {fileID: 556386068198608989, guid: ec75047abe280f5409cc027e70bd2713, type: 3}
+      propertyPath: ui_answers_ecuation_life
+      value: 
+      objectReference: {fileID: 1504018637}
     - target: {fileID: 744653908450037185, guid: ec75047abe280f5409cc027e70bd2713, type: 3}
       propertyPath: m_Name
       value: Manager
