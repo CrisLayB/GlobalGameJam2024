@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Agarrar : MonoBehaviour
+public class AgarrarInodoro : MonoBehaviour
 {
     public GameObject handPoint;
     public GameObject targetObject; // Objeto cuyo color será cambiado
@@ -39,7 +39,7 @@ public class Agarrar : MonoBehaviour
             }
         }
 
-        // Verificar si se está interactuando con la máquina de café
+        // Verificar si se está interactuando con el inodoro
         if (other.gameObject.CompareTag("Inodoro"))
         {
             interactingWithMachine = true;
