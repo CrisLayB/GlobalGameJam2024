@@ -158,6 +158,8 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(3f);
 
         manager.FinishedTask(TaskName.FinalTaskLight);
+
+        // ! Hacer aparecer el asunto del dialogo final
     }
 
 }
