@@ -6,15 +6,45 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/TestingFunctionalities/FirstSceneTrans.unity
+    guid: 5e9b3dc0b0c5bcd479b354da259747ba
+  - enabled: 0
+    path: Assets/Scenes/TestingFunctionalities/ElevatorScene.unity
+    guid: a4e371f21cd1b0c4394661c21596c066
+  - enabled: 1
+    path: Assets/Scenes/TestingFunctionalities/LoaderScene.unity
+    guid: 0afd7575f72c3714a968071ec231d587
+  - enabled: 1
+    path: Assets/Scenes/TestingFunctionalities/SecondScene.unity
+    guid: 668e2cf30fdc56b42a965f47b65f3e14
+  - enabled: 1
+    path: Assets/Scenes/TestingFunctionalities/TaskCoffe.unity
+    guid: 142da2d8bfc6f3e40a6aaf0e67ddcb95
+  - enabled: 1
+    path: Assets/Scenes/TestingFunctionalities/ElevatorTest.unity
+    guid: bd230d30b83c8824a9d27dba072c701c
+  - enabled: 1
+    path: Assets/Scenes/TestingFunctionalities/sistemaDialogos.unity
+    guid: 9ef83ef9ac0b564438e34632a83fe893
+  - enabled: 1
+    path: Assets/Scenes/TestingFunctionalities/TaskList.unity
+    guid: 59b2c9ea834c22a46b8c4bae459948f4
+  - enabled: 1
+    path: Assets/Scenes/MainGame/ElevatorScene.unity
+    guid: 2420b893019b1c048b5bfa0ffbfcb67f
+  - enabled: 1
+    path: Assets/Scenes/MainGame/Game.unity
+    guid: e07969d8a35eaa14eb4d247c0fed5700
+  - enabled: 1
     path: Assets/Scenes/MainGame/InitialCredits.unity
     guid: 0da9e0573a5b929428a693ef46433b1b
   - enabled: 1
     path: Assets/Scenes/MainGame/MainMenu.unity
     guid: 0a1b05f4d1f8c754fb2cf62c536dce9a
   - enabled: 1
-    path: Assets/Scenes/MainGame/Game.unity
-    guid: 3584a3a38fa9fc24cb0d954881809cd6
+    path: Assets/Scenes/MainGame/Scene1.unity
+    guid: 18992f8ba04c6db48b60f48709ae9ac5
   - enabled: 1
-    path: Assets/Scenes/MainGame/Gameplay.unity
-    guid: 1371d69c3d1ba6f4aa0586ffe8e6f8aa
+    path: Assets/Scenes/MainGame/Zombies test.unity
+    guid: a1ace787096fcf14b81e30ac2421ac74
   m_configObjects: {}

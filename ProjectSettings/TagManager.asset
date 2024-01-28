@@ -16,6 +16,8 @@ TagManager:
   - Food
   - Wall
   - Cilindro
+  - Zombie
+  - Dialaogue
   layers:
   - Default
   - TransparentFX
