@@ -8,6 +8,8 @@ public class SistemaDialogo : MonoBehaviour
     [SerializeField, TextArea(4, 6)] private string[] dialogueLines;
     [SerializeField] private GameObject dialoguePanel;
     [SerializeField] private TMP_Text dialogueText;
+    [SerializeField] private Animator myAnimationController;
+
     private bool didDialogueStart;
     private int lineIndex;
     private float typingTime = 0.05f;
@@ -56,6 +58,9 @@ public class SistemaDialogo : MonoBehaviour
         {
             didDialogueStart = false;
             dialoguePanel.SetActive(false);
+
+            // Activa la animación cuando se termina de mostrar el diálogo
+            myAnimationController.SetBool("playWalk", true);
         }
     }
 

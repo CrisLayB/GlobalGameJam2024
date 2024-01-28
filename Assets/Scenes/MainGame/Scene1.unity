@@ -664,9 +664,10 @@ MonoBehaviour:
   - Hola, Bienvenido a tu primer dia de trabajo
   - Lamentablemente hoy no tenemos luz
   - Pero aqui esta tu lista de tareas, debes empezar saludando al jefe, esta en el
-    nivel 5
+    nivel 5, sigueme
   dialoguePanel: {fileID: 1775728644}
   dialogueText: {fileID: 1209991860}
+  myAnimationController: {fileID: 275627293}
 --- !u!1 &631059127
 GameObject:
   m_ObjectHideFlags: 0
