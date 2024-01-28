@@ -17,7 +17,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -28,7 +27,7 @@ public class PlayerController : MonoBehaviour
     private bool isOn = true;    
     private bool showTaskList = false;
     
-    [SerializeField] private GameObject answers_ecuation_life; 
+    [SerializeField] private GameObject ui_answers_ecuation_life;
     [SerializeField] private Manager manager;
 
     //--------------------------------------------------------------------------------------
@@ -36,7 +35,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start() 
     {
-        if(answers_ecuation_life == null)
+        if(ui_answers_ecuation_life == null)
         {
             Debug.Log("Error: No esta adjunto el Game Object de UI Respuestas de ecuacion de la vida");
         }
@@ -85,14 +84,17 @@ public class PlayerController : MonoBehaviour
         {            
             if(hitInfo.collider.CompareTag("EcuationLife") && manager.TheTaskIsDone(TaskName.EcuationLife) == 0)
             {                
-                answers_ecuation_life.SetActive(true);
-                manager.EnterEcuationLife();
+                manager.ShowInputInformation("F", "Resuelve la Ecuación de la Vida");
+                // ! Creo que esto deberá de ir en el manager
+                // ui_answers_ecuation_life.SetActive(true);
+                // manager.EnterEcuationLife();
             }
         }
         else
         {
             Debug.DrawRay(camRay.origin, camRay.direction * maxRayDistance, Color.green);
-            answers_ecuation_life.SetActive(false);
+            manager.HideInputInformation();
+            // ui_answers_ecuation_life.SetActive(false);
         }
     }
 }

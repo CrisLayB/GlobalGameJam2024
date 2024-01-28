@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Manager : MonoBehaviour
 {
     [SerializeField] private GameObject player, cameraEcuationLife;
+    [SerializeField] private GameObject uiKeyInput;
+    [SerializeField] private TextMesh actionText, keyInputText;
     private TaskList taskList;
 
     private void Start() 
@@ -58,5 +61,19 @@ public class Manager : MonoBehaviour
     {
         player.SetActive(true);
         cameraEcuationLife.SetActive(false);
+    }
+
+    public void ShowInputInformation(string pKeyInput, string pActionText)
+    {
+        uiKeyInput.SetActive(true);
+        keyInputText.text = pKeyInput;
+        actionText.text = pActionText;
+    }
+
+    public void HideInputInformation()
+    {
+        uiKeyInput.SetActive(false);
+        keyInputText.text = "";
+        actionText.text = "";
     }
 }
