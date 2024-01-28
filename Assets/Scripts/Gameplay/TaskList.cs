@@ -57,6 +57,19 @@ public class TaskList : MonoBehaviour
         doneTasks[taskNum] = true;
     }
 
+    public int TheTaskIsDone(TaskName taskEnum)
+    {
+        int taskNum = (int)taskEnum;
+
+        if(taskNum < 0 || taskNum > uiTasks.Length)
+        {
+            Debug.Log("Error: Task Num " + taskNum + " pasa los limites ");
+            return -1;
+        }
+                
+        return (doneTasks[taskNum]) ? 1 : 0;
+    }
+
     public void ShowTaskList(bool show)
     {
         animator.SetBool("showTaskList", show);

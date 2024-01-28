@@ -25,35 +25,26 @@ public class PlayerController : MonoBehaviour
     /// -→ Atributos y Campos    
     /// - Linterna
     [SerializeField] private Light flashlight;
-    private bool isOn = true;
-    private TaskList taskList;
+    private bool isOn = true;    
     private bool showTaskList = false;
-
-    // /// - Para mostrar información
-    // [SerializeField] private GameObject objectText;
-    // [SerializeField] private Text infoText;
+    
+    [SerializeField] private GameObject answers_ecuation_life; 
+    [SerializeField] private Manager manager;
 
     //--------------------------------------------------------------------------------------
     /// -→ Métodos
 
     private void Start() 
     {
-        InitializeTaskList();
-    }
-
-    private void InitializeTaskList()
-    {
-        GameObject tasksFound = GameObject.Find("TaskList");
-
-        if(tasksFound == null) 
+        if(answers_ecuation_life == null)
         {
-            Debug.Log("Error: No se encontro el GameObject Tasklist");
-            return;
+            Debug.Log("Error: No esta adjunto el Game Object de UI Respuestas de ecuacion de la vida");
         }
 
-        taskList = tasksFound.GetComponent<TaskList>();
-
-        if(taskList == null) Debug.Log("Error: No se encontro el componente TaskList en el gameobject Tasklist");
+        if(manager == null)
+        {
+            Debug.Log("Error: El Manager no esta adjunto con el player Controller");
+        }
     }
 
     /// <summary>
@@ -67,8 +58,6 @@ public class PlayerController : MonoBehaviour
             // Encender o apagar
             isOn = !isOn;             
             flashlight.intensity = !isOn ? 0 : 2;
-            // Audio de encender o apagar
-            // AudioClipName name = !isOn ? AudioClipName.OffSound : AudioClipName.OnSound;
             AudioManeger.Play(AudioClipName.FlashLightSound);
         }
 
@@ -76,97 +65,34 @@ public class PlayerController : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Q))
         {
             showTaskList = !showTaskList;
-            taskList.ShowTaskList(showTaskList);
+            manager.ShowTaskList(showTaskList);
         }
 
         // De Prueba
         if(Input.GetKey(KeyCode.Z))
         {
-            MarkTask(TaskName.GreetTheBoss);
-        }
-
-         if(Input.GetKey(KeyCode.X))
-        {
-            MarkTask(TaskName.UnplugTheBath);
-        }
-
-         if(Input.GetKey(KeyCode.C))
-        { 
-            MarkTask(TaskName.CleanTheWindows);
-        }
-
-         if(Input.GetKey(KeyCode.V))
-        {
-            MarkTask(TaskName.PrepareCoffee);
-        }
-
-         if(Input.GetKey(KeyCode.B))
-        {
-            MarkTask(TaskName.EcuationLife);
-        }
-
-         if(Input.GetKey(KeyCode.N))
-        {
-            MarkTask(TaskName.FinalTaskLight);
+            manager.FinishedTask(TaskName.GreetTheBoss);
         }
     }
 
-    private void MarkTask(TaskName taskEnum)
-    {        
-        taskList.TaskAllreadyDone(taskEnum);
-    }
-
-    // private void ShowOrHideTaskList()
-    // {
-
-    // }
-
-    /// <summary>
-    /// OnTriggerExit es llamado cuando el collier se matiene tocando el trigger.
-    /// </summary>
-    /// <param name="other">El otro collider involucrado con esta  colision.</param>
-    private void OnTriggerStay(Collider other) 
+    private void FixedUpdate() 
     {
-        // RayCast para tener un mejor control de detección
         Ray camRay = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
         RaycastHit hitInfo;
-            
-        if(Physics.Raycast(camRay, out hitInfo))
-        {           
-            // DetectObject(other, hitInfo, "ItemBox", "CAJA");
-            // DetectObject(other, hitInfo, "ItemBall", "PELOTA DEFORMADA");
-            // DetectObject(other, hitInfo, "ItemPhoto1", "FOTO DE MARIO EN 8BTS");
-            // DetectObject(other, hitInfo, "ItemPhoto2", "FOTO DE SONIC EN PNG");                                             
-        }          
+        float maxRayDistance = 1f;
+
+        if(Physics.Raycast(camRay, out hitInfo, maxRayDistance))
+        {            
+            if(hitInfo.collider.CompareTag("EcuationLife") && manager.TheTaskIsDone(TaskName.EcuationLife) == 0)
+            {                
+                answers_ecuation_life.SetActive(true);
+                manager.EnterEcuationLife();
+            }
+        }
+        else
+        {
+            Debug.DrawRay(camRay.origin, camRay.direction * maxRayDistance, Color.green);
+            answers_ecuation_life.SetActive(false);
+        }
     }
-
-    // /// <summary>
-    // /// Implemente este código para evitar repetir código y aparte porque odio código repetido.
-    // /// </summary>
-    // /// <param name="other">El otro collider involucrado con esta  colision.</param>
-    // /// <param name="hitInfo">La información del hit box del objeto apuntado.</param>
-    // /// <param name="theTag">El tag de un objeto que se quiera acceder.</param>
-    // /// <param name="theObject">Nombre/Titulo del objeto identificado.</param>
-    // private void DetectObject(Collider other, RaycastHit hitInfo, string theTag, string theObject)
-    // {
-    //     // Para ver que es Caja            
-    //     if(other.gameObject.CompareTag(theTag) && hitInfo.collider.CompareTag(theTag))
-    //     {
-    //         objectText.SetActive(true);
-    //         infoText.text = theObject;
-    //     }            
-
-    //     if(!hitInfo.collider.CompareTag(theTag) && other.gameObject.CompareTag(theTag))
-    //         objectText.SetActive(false);
-    // }
-
-    // /// <summary>
-    // /// OnTriggerExit es llamado cuando el collier se detubo de tocar el trigger.
-    // /// </summary>
-    // /// <param name="other">The other Collider involved in this collision.</param>
-    // private void OnTriggerExit(Collider other)
-    // {
-    //     objectText.SetActive(false);                
-    // }
-
 }
