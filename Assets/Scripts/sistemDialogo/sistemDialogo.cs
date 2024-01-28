@@ -19,7 +19,7 @@ public class SistemaDialogo : MonoBehaviour
 
     void Update()
     {
-        if (isPlayerInRange && Input.GetMouseButtonDown(0)) // Cambiado de "Fire1" a "0" para detectar clic izquierdo
+        if (isPlayerInRange && Input.GetKeyDown(KeyCode.Return)) // Cambiado de "Fire1" a "0" para detectar clic izquierdo
         {
             if (!didDialogueStart)
             {
