@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class zombieStop : MonoBehaviour
+public class Zombie : MonoBehaviour
 {
     private Animator animator;
 
@@ -17,7 +17,7 @@ public class zombieStop : MonoBehaviour
 
     private void Update()
     {
-        if (transform.position.x < 9f)
+        if (transform.position.x < 8f)
         {
             animator.SetBool("playStop", true);
         }
@@ -30,4 +30,5 @@ public class zombieStop : MonoBehaviour
     //         animator.SetBool("playStop", true);
     //     }
     // }
+
 }

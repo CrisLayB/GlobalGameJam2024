@@ -25,12 +25,12 @@ public class ZombieActions : MonoBehaviour
         
     }
 
-    private void OnTriggerExit(Collider other)
+    /*private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
         {
             myAnimationController.SetBool("playHi", false);
         }
 
-    }
+    }*/
 }
