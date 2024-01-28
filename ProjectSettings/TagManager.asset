@@ -15,6 +15,7 @@ TagManager:
   - Impresora
   - Food
   - Wall
+  - Cilindro
   layers:
   - Default
   - TransparentFX
