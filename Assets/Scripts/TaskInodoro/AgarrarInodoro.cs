@@ -69,7 +69,7 @@ public class AgarrarInodoro : MonoBehaviour
         pickedObject = obj;
     }
 
-    private void DropObject()
+    public void DropObject()
     {
         pickedObject.GetComponent<Rigidbody>().useGravity = true;
         pickedObject.GetComponent<Rigidbody>().isKinematic = false;

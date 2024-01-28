@@ -90,7 +90,7 @@ public class PlayerController : MonoBehaviour
         // Bath Task
         if(hitInfo.collider.CompareTag("Inodoro") && manager.TheTaskIsDone(TaskName.UnplugTheBath) == 0 && indoroObj.PickedObject != null)
         {
-            if(indoroObj.PickedObject.ToString() == "Banana (UnityEngine.GameObject)")
+            if(indoroObj.PickedObject.ToString() == "BananaGrab (UnityEngine.GameObject)")
             {
                 manager.ShowInputInformation("F", "Destapar el baño");
                 if(Input.GetButtonDown(InputName.InteractionButton.ToString()))
@@ -117,6 +117,13 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator UnplugTheBathAction()
     {
+        indoroObj.DropObject();
+                
+        GameObject bananaToDestroy = GameObject.Find("BananaGrab");
+
+        if(bananaToDestroy != null)
+            Destroy(bananaToDestroy);
+
         GameObject bathObj = GameObject.Find("Toilet");
 
         Animator animBath = bathObj.GetComponent<Animator>();
