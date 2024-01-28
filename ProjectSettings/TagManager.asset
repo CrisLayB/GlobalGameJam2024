@@ -8,6 +8,7 @@ TagManager:
   - Layer
   - CoffeeMachine
   - WinCollider
+  - Zombie
   layers:
   - Default
   - TransparentFX
