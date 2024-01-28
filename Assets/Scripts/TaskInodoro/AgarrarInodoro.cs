@@ -5,9 +5,10 @@ using UnityEngine;
 public class Agarrar : MonoBehaviour
 {
     public GameObject handPoint;
+    public GameObject targetObject; // Objeto cuyo color será cambiado
+    public Color newColor; // Nuevo color para el objeto
     private GameObject pickedObject = null;
     private bool interactingWithMachine = false; 
-    private bool animationPlayed = false; 
 
     void Update()
     {
@@ -19,10 +20,10 @@ public class Agarrar : MonoBehaviour
                 DropObject();
             }
 
-            // Llenar la taza "f",
+            // Cambiar el color del objeto objetivo "f",
             if (Input.GetKeyDown("f") && interactingWithMachine)
             {
-                ActivateAnimation();
+                ChangeObjectColor();
             }
         }
     }
@@ -30,7 +31,7 @@ public class Agarrar : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         // Recoger la taza al presionar "e" 
-        if (other.gameObject.CompareTag("CoffeeCup") && pickedObject == null)
+        if (other.gameObject.CompareTag("Banana") && pickedObject == null)
         {
             if (Input.GetKey("e"))
             {
@@ -39,22 +40,16 @@ public class Agarrar : MonoBehaviour
         }
 
         // Verificar si se está interactuando con la máquina de café
-        if (other.gameObject.CompareTag("CoffeeMachine"))
+        if (other.gameObject.CompareTag("Inodoro"))
         {
             interactingWithMachine = true;
-        }
-
-        // Verificar si la animación del café ya ha ocurrido al tocar el collider
-        if (other.gameObject.CompareTag("WinCollider") && animationPlayed)
-        {
-            Debug.Log("¡Ganaste!");
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
         // Dejar de interactuar con la máquina de café cuando el jugador se aleje
-        if (other.gameObject.CompareTag("CoffeeMachine"))
+        if (other.gameObject.CompareTag("Inodoro"))
         {
             interactingWithMachine = false;
         }
@@ -77,18 +72,16 @@ public class Agarrar : MonoBehaviour
         pickedObject = null;
     }
 
-    private void ActivateAnimation()
+    private void ChangeObjectColor()
     {
-        Animator cupAnimator = pickedObject.GetComponent<Animator>();
-        if (cupAnimator != null)
+        Renderer rend = targetObject.GetComponent<Renderer>();
+        if (rend != null)
         {
-            cupAnimator.SetBool("fillCoffee", true);
-            animationPlayed = true;
+            rend.material.color = newColor;
         }
         else
         {
-            Debug.Log("No se encontro el animator");
+            Debug.Log("No se encontró el Renderer en el objeto objetivo.");
         }
     }
 }
-
