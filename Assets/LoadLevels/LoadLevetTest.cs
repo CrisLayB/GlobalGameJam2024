@@ -1,42 +1,32 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LoadLevetTest : MonoBehaviour
+public class LoadLevelTest : MonoBehaviour
 {
-    [ContextMenuItem("Load Level", nameof(EditorLoadLevel))];
-    [ContextMenuItem("Load Level 2", nameof(EditorLoadLevel))];
-    public string levelName; 
-    private string loadedLevelName = string.Empty;
+    [SerializeField]
+    private string sceneToLoad = "TaskList"; // La escena a cargar
+    private bool shouldLoadScene = false; // Controla si la escena debe cargarse
 
-    [ContextMenuItem("Load Level - Context Menu")];
-
-    void EditorLoadLevel(){
-        StartCoroutine(LoadLevelAsync());
-    }
-
-    private IEnumerator LoadLevelAsync(){
-        var unloadProgress = SceneManager.UnloadSceneAsync(loadedLevelName);
-        while (!progress.isDone){
-            yield return null;
-        }
-
-        var progress = SceneManager.LoadSceneAsync(levelName, LoadSceneMode.Additive);
-        while (!unloadProgress.isDone){
-            yield return null;
-        }
-        Debug.Log("Level Loaded")
-    }
-    // Start is called before the first frame update
-    void Start()
+    // Método público para establecer el valor de shouldLoadScene desde otros scripts
+    public void SetShouldLoadScene(bool value)
     {
-        
+        shouldLoadScene = value;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        if (shouldLoadScene)
+        {
+            StartCoroutine(LoadLevel(sceneToLoad));
+            shouldLoadScene = false; // Restablecer el indicador
+        }
+    }
+
+    // Corrutina para cargar la escena
+    private IEnumerator LoadLevel(string sceneName)
+    {
+        yield return SceneManager.LoadSceneAsync(sceneName);
+        Debug.Log("Escena cargada: " + sceneName);
     }
 }
