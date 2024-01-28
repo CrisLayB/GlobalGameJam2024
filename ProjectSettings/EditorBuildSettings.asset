@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/TestingFunctionalities/TaskImpresora.unity
+    guid: 12a20e4b332611c44853f7f7842c7ecf
+  - enabled: 1
+    path: Assets/Scenes/TestingFunctionalities/Snake.unity
+    guid: d6eb5f30323a8704eb38a47a6ab5c59a
   m_configObjects: {}

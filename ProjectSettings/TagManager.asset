@@ -10,6 +10,9 @@ TagManager:
   - Layer
   - CoffeeMachine
   - WinCollider
+  - Impresora
+  - Food
+  - Wall
   layers:
   - Default
   - TransparentFX
