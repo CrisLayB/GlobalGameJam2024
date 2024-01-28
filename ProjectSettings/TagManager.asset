@@ -12,6 +12,9 @@ TagManager:
   - WinCollider
   - Banana
   - Inodoro
+  - Impresora
+  - Food
+  - Wall
   layers:
   - Default
   - TransparentFX
