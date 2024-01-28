@@ -160,6 +160,13 @@ public class PlayerController : MonoBehaviour
         manager.FinishedTask(TaskName.FinalTaskLight);
 
         // ! Hacer aparecer el asunto del dialogo final
+        GameObject finalDialoge = GameObject.Find("FinalDialoge");
+
+        if(finalDialoge != null)
+        {
+            SistemaDialogo sistemaDialogo = finalDialoge.GetComponent<SistemaDialogo>();
+            sistemaDialogo.ActiveDialoge();
+        }
     }
 
 }

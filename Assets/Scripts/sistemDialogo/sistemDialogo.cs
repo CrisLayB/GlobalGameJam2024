@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class SistemaDialogo : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class SistemaDialogo : MonoBehaviour
     private bool didDialogueStart;
     private int lineIndex;
     private float typingTime = 0.05f;
+
+    [SerializeField] private string caseManage;
 
     void Start()
     {
@@ -60,7 +63,13 @@ public class SistemaDialogo : MonoBehaviour
             dialoguePanel.SetActive(false);
 
             // Activa la animación cuando se termina de mostrar el diálogo
-            myAnimationController.SetBool("playWalk", true);
+            if(myAnimationController != null)
+                myAnimationController.SetBool("playWalk", true);
+
+            if(caseManage == "final")
+            {
+                SceneManager.LoadScene("InitialCredits");
+            }
         }
     }
 
@@ -98,4 +107,9 @@ public class SistemaDialogo : MonoBehaviour
         return didDialogueStart;
     }
 
+    public void ActiveDialoge()
+    {
+        isPlayerInRange = true;
+        StartDialogue();
+    }
 }
