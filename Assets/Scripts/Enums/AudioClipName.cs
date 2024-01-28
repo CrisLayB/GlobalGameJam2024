@@ -4,5 +4,11 @@ using UnityEngine;
 
 public enum AudioClipName
 {
-    FlashLightSound
+    BellDone,
+    ButtonsElevator,
+    MakeCoffee,
+    ElevatorArrives,
+    Plunger,
+    FlashLightSound,
+    Yeso
 }
