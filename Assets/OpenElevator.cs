@@ -22,12 +22,10 @@ public class OpenElevator : MonoBehaviour
     if (sistemaDialogo != null)
     {
         if(sistemaDialogo.IsActive()){
-            Debug.Log("Closed");
             myAnimator.SetBool("DoorClosed", true);
 
         }
         else {
-            Debug.Log("Open");
             myAnimator.SetBool("DoorClosed", false);
         }
 

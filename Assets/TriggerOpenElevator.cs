@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TriggerOpenElevator : MonoBehaviour
 {
     private GameObject zombie;
+    private string sceneToLoad = "ElevatorScene"; // La escena a cargar
+    private bool shouldLoadScene = false; // Controla si la escena debe cargarse
 
     void Start()
     {
@@ -19,10 +22,14 @@ public class TriggerOpenElevator : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        // Verifica si el objeto que entró en el trigger tiene la etiqueta "Zombie"
-        if (other.CompareTag("Zombie"))
-        {
-            Debug.Log("Entro zombie");
-        }
+            StartCoroutine(LoadLevel(sceneToLoad));
+            shouldLoadScene = false; // Restablecer el indicador    
+            
+    }
+
+        private IEnumerator LoadLevel(string sceneName)
+    {
+        yield return SceneManager.LoadSceneAsync(sceneName);
+        Debug.Log("Escena cargada: " + sceneName);
     }
 }

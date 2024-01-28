@@ -9,6 +9,7 @@ TagManager:
   - CoffeeMachine
   - WinCollider
   - Zombie
+  - Dialaogue
   layers:
   - Default
   - TransparentFX
