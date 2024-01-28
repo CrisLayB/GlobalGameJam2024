@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour
     private bool isOn = true;    
     private bool showTaskList = false;    
     [SerializeField] private Manager manager;
+    [SerializeField] private AgarrarInodoro indoroObj;
 
     //--------------------------------------------------------------------------------------
     /// -→ Métodos
@@ -75,15 +76,7 @@ public class PlayerController : MonoBehaviour
 
         if(Physics.Raycast(camRay, out hitInfo, maxRayDistance))
         {            
-            if(hitInfo.collider.CompareTag("EcuationLife") && manager.TheTaskIsDone(TaskName.EcuationLife) == 0)
-            {                
-                manager.ShowInputInformation("F", "Resuelve la Ecuación de la Vida");
-                if(Input.GetButtonDown(InputName.InteractionButton.ToString()))
-                {
-                    manager.HideInputInformation();
-                    manager.EnterEcuationLife();
-                }
-            }
+            TasksToDo(hitInfo);
         }
         else
         {
@@ -91,4 +84,50 @@ public class PlayerController : MonoBehaviour
             manager.HideInputInformation();
         }
     }
+
+    private void TasksToDo(RaycastHit hitInfo)
+    {
+        // Bath Task
+        if(hitInfo.collider.CompareTag("Inodoro") && manager.TheTaskIsDone(TaskName.UnplugTheBath) == 0 && indoroObj.PickedObject != null)
+        {
+            if(indoroObj.PickedObject.ToString() == "Banana (UnityEngine.GameObject)")
+            {
+                manager.ShowInputInformation("F", "Destapar el baño");
+                if(Input.GetButtonDown(InputName.InteractionButton.ToString()))
+                {
+                    // Poner animacion de baño
+                    // TaskName.UnplugTheBath
+                    // Task completada
+                    StartCoroutine("UnplugTheBathAction");
+                }
+            }
+        }
+        
+        // Ecuation Life Task
+        if(hitInfo.collider.CompareTag("EcuationLife") && manager.TheTaskIsDone(TaskName.EcuationLife) == 0)
+        {                
+            manager.ShowInputInformation("F", "Resuelve la Ecuación de la Vida");
+            if(Input.GetButtonDown(InputName.InteractionButton.ToString()))
+            {
+                manager.HideInputInformation();
+                manager.EnterEcuationLife();
+            }
+        }
+    }
+
+    IEnumerator UnplugTheBathAction()
+    {
+        GameObject bathObj = GameObject.Find("Toilet");
+
+        Animator animBath = bathObj.GetComponent<Animator>();
+
+        AudioManeger.Play(AudioClipName.Plunger);
+        animBath.SetBool("banana", true);
+        
+        yield return new WaitForSeconds(5f);
+
+        AudioManeger.Play(AudioClipName.BellDone);
+        manager.FinishedTask(TaskName.UnplugTheBath);
+    }
+
 }

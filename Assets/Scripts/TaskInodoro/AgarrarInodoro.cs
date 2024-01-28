@@ -10,6 +10,11 @@ public class AgarrarInodoro : MonoBehaviour
     private GameObject pickedObject = null;
     private bool interactingWithMachine = false; 
 
+    public GameObject PickedObject
+    {
+        get { return pickedObject; }
+    }
+
     void Update()
     {
         if (pickedObject != null)
