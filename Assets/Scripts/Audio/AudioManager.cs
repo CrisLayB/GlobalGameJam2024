@@ -24,9 +24,14 @@ public class AudioManeger : MonoBehaviour
     {
         initialized = true;
         audioSource = source;
-
-        // Flash Light Sound        
-        audioClips.Add(AudioClipName.FlashLightSound, Resources.Load<AudioClip>("FlashLightSound"));        
+        
+        audioClips.Add(AudioClipName.BellDone, Resources.Load<AudioClip>("BellDone"));
+        audioClips.Add(AudioClipName.ButtonsElevator, Resources.Load<AudioClip>("ButtonsElevator"));
+        audioClips.Add(AudioClipName.MakeCoffee, Resources.Load<AudioClip>("MakeCoffee"));
+        audioClips.Add(AudioClipName.ElevatorArrives, Resources.Load<AudioClip>("ElevatorArrives"));
+        audioClips.Add(AudioClipName.Plunger, Resources.Load<AudioClip>("Plunger"));
+        audioClips.Add(AudioClipName.FlashLightSound, Resources.Load<AudioClip>("FlashLightSound"));
+        audioClips.Add(AudioClipName.Yeso, Resources.Load<AudioClip>("Yeso"));
     }
 
     /// <summary>

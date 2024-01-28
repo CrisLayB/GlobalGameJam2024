@@ -106,18 +106,20 @@ public class Manager : MonoBehaviour
 
     public void FinishedTask(TaskName taskEnum)
     {
+        AudioManeger.Play(AudioClipName.BellDone);
         taskList.TaskAllreadyDone(taskEnum);
     }
 
     public void EnterEcuationLife()
     {
+        AudioManeger.Play(AudioClipName.Yeso);
         ui_answers_ecuation_life.SetActive(true);
         player.SetActive(false);
         cameraEcuationLife.SetActive(true);
     }
 
     private void WinningEcuationLife()
-    {
+    {        
         FinishedTask(TaskName.EcuationLife);
         ui_answers_ecuation_life.SetActive(false);
         player.SetActive(true);
