@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class TriggerOpenElevator : MonoBehaviour
 {
     private GameObject zombie;
-    private string sceneToLoad = "ElevatorScene"; // La escena a cargar
+    private string sceneToLoad = "Gameplay"; // La escena a cargar
     private bool shouldLoadScene = false; // Controla si la escena debe cargarse
 
     void Start()
