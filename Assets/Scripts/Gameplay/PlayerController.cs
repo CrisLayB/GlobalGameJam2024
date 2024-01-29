@@ -65,12 +65,6 @@ public class PlayerController : MonoBehaviour
             showTaskList = !showTaskList;
             manager.ShowTaskList(showTaskList);
         }
-
-        // De Prueba
-        if(Input.GetKey(KeyCode.Z))
-        {
-            manager.FinishedTask(TaskName.GreetTheBoss);
-        }
     }
 
     private void FixedUpdate() 
@@ -93,6 +87,23 @@ public class PlayerController : MonoBehaviour
 
     private void TasksToDo(RaycastHit hitInfo)
     {
+        // Talk to Boss
+        if(hitInfo.collider.CompareTag("BossRabbit") && manager.TheTaskIsDone(TaskName.GreetTheBoss) == 0)
+        {
+             manager.ShowInputInformation("F", "Habla con tu Jefe");
+             if(Input.GetButtonDown(InputName.InteractionButton.ToString()))
+             {
+                manager.HideInputInformation();
+                GameObject finalDialoge = GameObject.Find("BossTalk");
+
+                if(finalDialoge != null)
+                {
+                    SistemaDialogo sistemaDialogo = finalDialoge.GetComponent<SistemaDialogo>();
+                    sistemaDialogo.ActiveDialoge();
+                }
+             }
+        }
+        
         // Bath Task
         if(hitInfo.collider.CompareTag("Inodoro") && manager.TheTaskIsDone(TaskName.UnplugTheBath) == 0 && indoroObj.PickedObject != null)
         {
@@ -123,8 +134,8 @@ public class PlayerController : MonoBehaviour
             manager.ShowInputInformation("F", "Repara la luz");
             if(Input.GetButtonDown(InputName.InteractionButton.ToString()))
             {
-                StartCoroutine("TurnonTheLight");
-                
+                manager.HideInputInformation();
+                StartCoroutine("TurnonTheLight");                
             }
         }
     }

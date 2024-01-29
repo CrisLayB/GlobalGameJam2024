@@ -1603,6 +1603,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: fd2cc0f1b2db74d448a0fe43acdaa688, type: 3}
   m_PrefabInstance: {fileID: 70826392}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &87453222
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1850234307332555719, guid: a7f8f15be45888e4385e29911c5cf832, type: 3}
+      propertyPath: m_Name
+      value: GoalCoffee
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098152390329864114, guid: a7f8f15be45888e4385e29911c5cf832, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -25.694048
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098152390329864114, guid: a7f8f15be45888e4385e29911c5cf832, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098152390329864114, guid: a7f8f15be45888e4385e29911c5cf832, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -26.765425
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098152390329864114, guid: a7f8f15be45888e4385e29911c5cf832, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098152390329864114, guid: a7f8f15be45888e4385e29911c5cf832, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098152390329864114, guid: a7f8f15be45888e4385e29911c5cf832, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098152390329864114, guid: a7f8f15be45888e4385e29911c5cf832, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098152390329864114, guid: a7f8f15be45888e4385e29911c5cf832, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098152390329864114, guid: a7f8f15be45888e4385e29911c5cf832, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098152390329864114, guid: a7f8f15be45888e4385e29911c5cf832, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a7f8f15be45888e4385e29911c5cf832, type: 3}
 --- !u!1001 &92065179
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7034,63 +7091,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: fd2cc0f1b2db74d448a0fe43acdaa688, type: 3}
   m_PrefabInstance: {fileID: 826331292}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &837465951
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 49041729847722546, guid: cd9a057b5da8436489834fb28bd2db59, type: 3}
-      propertyPath: m_Name
-      value: TableMain (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 1821411081537366443, guid: cd9a057b5da8436489834fb28bd2db59, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -24.82
-      objectReference: {fileID: 0}
-    - target: {fileID: 1821411081537366443, guid: cd9a057b5da8436489834fb28bd2db59, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 1821411081537366443, guid: cd9a057b5da8436489834fb28bd2db59, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -25.72
-      objectReference: {fileID: 0}
-    - target: {fileID: 1821411081537366443, guid: cd9a057b5da8436489834fb28bd2db59, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 1821411081537366443, guid: cd9a057b5da8436489834fb28bd2db59, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1821411081537366443, guid: cd9a057b5da8436489834fb28bd2db59, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 1821411081537366443, guid: cd9a057b5da8436489834fb28bd2db59, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1821411081537366443, guid: cd9a057b5da8436489834fb28bd2db59, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1821411081537366443, guid: cd9a057b5da8436489834fb28bd2db59, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 1821411081537366443, guid: cd9a057b5da8436489834fb28bd2db59, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: cd9a057b5da8436489834fb28bd2db59, type: 3}
 --- !u!1001 &840851403
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9565,6 +9565,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rabbit 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1588090451174212, guid: c737dd230724d61469e1c672cf47ed9e, type: 3}
+      propertyPath: m_TagString
+      value: BossRabbit
+      objectReference: {fileID: 0}
     - target: {fileID: 4677745771901032, guid: c737dd230724d61469e1c672cf47ed9e, type: 3}
       propertyPath: m_LocalScale.x
       value: 6
@@ -9624,7 +9628,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1588090451174212, guid: c737dd230724d61469e1c672cf47ed9e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1424118956}
   m_SourcePrefab: {fileID: 100100000, guid: c737dd230724d61469e1c672cf47ed9e, type: 3}
 --- !u!1001 &1088845774
 PrefabInstance:
@@ -12681,9 +12688,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueLines:
-  - a
-  - No eres un zombie
-  - Estas despedido
+  - "Jefe Conejo \u2014 a"
+  - "Jefe Conejo \u2014 \xBFPero qu\xE9? \xBFT\xFA qu\xE9 haces ac\xE1? \xBFQui\xE9n
+    te dej\xF3 entrar?"
+  - "T\xFA \u2014 Pues fue usted qui\xE9n me pidi\xF3 que volviera al terminar, \xBFno?"
+  - "Jefe Conejo \u2014 \u2026"
+  - "Jefe Conejo \u2014 Eres el critic\xF3n de hace un rato, y encima eres un no-descompuesto.
+    Estaba seguro que eras un zombie. Espera un segundo\u2026"
+  - "Jefe Conejo \u2014 *snif snif*"
+  - "Jefe Conejo \u2014 \xBFEst\xE1s seguro que no est\xE1s descompuesto?"
+  - "T\xFA \u2014 Hasta donde s\xE9 a\xFAn no muero."
+  - "Jefe Conejo \u2014 Hmmm\u2026"
+  - "Jefe Conejo \u2014 Duchate."
+  - "Jefe Conejo \u2014 Ah, y est\xE1s despedido, no necesitamos humanos."
   dialoguePanel: {fileID: 1516007476}
   dialogueText: {fileID: 1516007475}
   myAnimationController: {fileID: 0}
@@ -13674,6 +13691,32 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: fd2cc0f1b2db74d448a0fe43acdaa688, type: 3}
   m_PrefabInstance: {fileID: 1420286889}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1424118953 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1588090451174212, guid: c737dd230724d61469e1c672cf47ed9e, type: 3}
+  m_PrefabInstance: {fileID: 1040255847}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1424118956
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1424118953}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.53, y: 1.07, z: 1.53}
+  m_Center: {x: 0, y: 0.32, z: 0}
 --- !u!1001 &1434076795
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14834,6 +14877,74 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ff5530dec1553c642ac652e2d33dda1e, type: 3}
   m_PrefabInstance: {fileID: 1591788147}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1595485497
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1595485499}
+  - component: {fileID: 1595485498}
+  m_Layer: 0
+  m_Name: BossTalk
+  m_TagString: BossRabbit
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1595485498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1595485497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26177fc0fd845c742a2a9e89a03491d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueLines:
+  - "T\xFA \u2014  \xBFBigotes?"
+  - "Jefe Conejo \u2014 \xBFQu\xE9?"
+  - "T\xFA\u2014 \xBFQu\xE9?"
+  - "Jefe Conejo \u2014 Se\xF1or conejo para ti, muchacho."
+  - "Jefe Conejo \u2014 En otras circunstancias, te enviar\xEDa de regreso, pero
+    estamos escasos de zombies estos d\xEDas y no nos caer\xEDa mal  un cad\xE1ver
+    m\xE1s en nuestras filas."
+  - "T\xFA \u2014 Pero\u2026"
+  - "Jefe Conejo \u2014  El salario no es negociable, el salario est\xE1 cerrado,
+    si es lo que quieres. "
+  - "T\xFA \u2014 No se trata de eso."
+  - "Jefe Conejo \u2014  \xBFMis zanahorias? No te adelantes con los bonos que a\xFAn
+    te quedan las horas base"
+  - "T\xFA \u2014 No, no, ya s\xE9 c\xF3mo funcionan los bonos. Es algo que me inquieta."
+  - "Jefe Conejo \u2014  Ahhh, se trata de mis residuos. Ja, eres igual a mis esposas.
+    Es por estr\xE9s, de acuerdo. Cuando tengas tantos hijos como yo lo entender\xE1s."
+  - "T\xFA \u2014 Es solo que\u2026"
+  - "Jefe Conejo \u2014  \xBFTe molestan? No tienes porqu\xE9 quedarte ac\xE1, toma
+    tu lista de tareas y hazme saber cuando hayas terminado."
+  dialoguePanel: {fileID: 1516007476}
+  dialogueText: {fileID: 1516007475}
+  myAnimationController: {fileID: 0}
+  caseManage: talkBoss
+--- !u!4 &1595485499
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1595485497}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -25.81, y: 3.85, z: -29.67}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1596419408
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16795,6 +16906,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: FirstPersonController
       objectReference: {fileID: 0}
+    - target: {fileID: 5148827909568176568, guid: 9162a31f568431d4984a7603c46ef997, type: 3}
+      propertyPath: m_Size.z
+      value: 1.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 5148827909568176568, guid: 9162a31f568431d4984a7603c46ef997, type: 3}
+      propertyPath: m_Center.z
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 5742211652259894759, guid: 9162a31f568431d4984a7603c46ef997, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.64
@@ -16834,6 +16953,11 @@ PrefabInstance:
     - target: {fileID: 5742211652259894759, guid: 9162a31f568431d4984a7603c46ef997, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8197833360145180783, guid: 9162a31f568431d4984a7603c46ef997, type: 3}
+      propertyPath: m_text
+      value: "Saludar Jefe\nDestapar Ba\xF1o\nArreglar Impresora\nPreparar Caf\xE9\nEcuaci\xF3n
+        de la Vida\nEncender Foco"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -20025,7 +20149,6 @@ SceneRoots:
   - {fileID: 1412163806}
   - {fileID: 1515101729}
   - {fileID: 1964241398}
-  - {fileID: 837465951}
   - {fileID: 1785225448}
   - {fileID: 1022057071}
   - {fileID: 1122870246}
@@ -20035,3 +20158,5 @@ SceneRoots:
   - {fileID: 1374068847}
   - {fileID: 1516007474}
   - {fileID: 1916776887}
+  - {fileID: 1595485499}
+  - {fileID: 87453222}

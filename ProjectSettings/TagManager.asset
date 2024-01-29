@@ -18,6 +18,8 @@ TagManager:
   - Cilindro
   - Zombie
   - Dialaogue
+  - CinemachineTarget
+  - BossRabbit
   layers:
   - Default
   - TransparentFX

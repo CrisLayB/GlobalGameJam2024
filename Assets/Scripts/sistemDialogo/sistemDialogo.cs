@@ -70,6 +70,17 @@ public class SistemaDialogo : MonoBehaviour
             {
                 SceneManager.LoadScene("InitialCredits");
             }
+
+            if(caseManage == "talkBoss")
+            {
+                GameObject managerFound = GameObject.Find("Manager");
+
+                if(managerFound != null)
+                {
+                    Manager manager = managerFound.GetComponent<Manager>();
+                    manager.FinishedTask(TaskName.GreetTheBoss);
+                }
+            }
         }
     }
 
