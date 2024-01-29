@@ -8,6 +8,15 @@ public class Agarrar : MonoBehaviour
     private GameObject pickedObject = null;
     private bool interactingWithMachine = false; 
     private bool animationPlayed = false; 
+    private Manager manager;
+
+    private void Start() 
+    {
+        manager = GameObject.Find("Manager").GetComponent<Manager>();    
+
+        if(manager == null)
+            Debug.Log("Error: No hay un manager asignado");
+    }
 
     void Update()
     {
@@ -20,8 +29,9 @@ public class Agarrar : MonoBehaviour
             }
 
             // Llenar la taza "f",
-            if (Input.GetKeyDown("f") && interactingWithMachine)
+            if(interactingWithMachine)
             {
+                manager.ShowInputInformation("F", "Para llenar la taza de café");
                 ActivateAnimation();
             }
         }
@@ -32,8 +42,10 @@ public class Agarrar : MonoBehaviour
         // Recoger la taza al presionar "e" 
         if (other.gameObject.CompareTag("CoffeeCup") && pickedObject == null)
         {
+            manager.ShowInputInformation("E", "Agarra la taza para el café");
             if (Input.GetKey("e"))
             {
+                manager.HideInputInformation();
                 PickUpObject(other.gameObject);
             }
         }
@@ -47,7 +59,17 @@ public class Agarrar : MonoBehaviour
         // Verificar si la animación del café ya ha ocurrido al tocar el collider
         if (other.gameObject.CompareTag("WinCollider") && animationPlayed)
         {
-            Debug.Log("¡Ganaste!");
+            GameObject managerFound = GameObject.Find("Manager");
+            if(managerFound != null)
+            {
+                Manager manager = managerFound.GetComponent<Manager>();
+                manager.FinishedTask(TaskName.PrepareCoffee);
+                GameObject coffeeToDestroy = GameObject.Find("PlasticCupForCoffee");
+                if(coffeeToDestroy != null)
+                {
+                    Destroy(coffeeToDestroy);
+                }
+            }
         }
     }
 

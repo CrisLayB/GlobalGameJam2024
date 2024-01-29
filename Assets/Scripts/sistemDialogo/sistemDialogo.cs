@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class SistemaDialogo : MonoBehaviour
 {
@@ -8,9 +9,13 @@ public class SistemaDialogo : MonoBehaviour
     [SerializeField, TextArea(4, 6)] private string[] dialogueLines;
     [SerializeField] private GameObject dialoguePanel;
     [SerializeField] private TMP_Text dialogueText;
+    [SerializeField] private Animator myAnimationController;
+
     private bool didDialogueStart;
     private int lineIndex;
     private float typingTime = 0.05f;
+
+    [SerializeField] private string caseManage;
 
     void Start()
     {
@@ -19,7 +24,7 @@ public class SistemaDialogo : MonoBehaviour
 
     void Update()
     {
-        if (isPlayerInRange && Input.GetMouseButtonDown(0)) // Cambiado de "Fire1" a "0" para detectar clic izquierdo
+        if (isPlayerInRange && Input.GetKeyDown(KeyCode.Return)) // Cambiado de "Fire1" a "0" para detectar clic izquierdo
         {
             if (!didDialogueStart)
             {
@@ -56,6 +61,28 @@ public class SistemaDialogo : MonoBehaviour
         {
             didDialogueStart = false;
             dialoguePanel.SetActive(false);
+
+            // Activa la animación cuando se termina de mostrar el diálogo
+            if(myAnimationController != null)
+                myAnimationController.SetBool("playWalk", true);
+
+            if(caseManage == "final")
+            {
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+                SceneManager.LoadScene("InitialCredits");
+            }
+
+            if(caseManage == "talkBoss")
+            {
+                GameObject managerFound = GameObject.Find("Manager");
+
+                if(managerFound != null)
+                {
+                    Manager manager = managerFound.GetComponent<Manager>();
+                    manager.FinishedTask(TaskName.GreetTheBoss);
+                }
+            }
         }
     }
 
@@ -86,5 +113,16 @@ public class SistemaDialogo : MonoBehaviour
             isPlayerInRange = false;
             dialoguePanel.SetActive(false); // Desactiva el panel de diálogo cuando el jugador sale del collider
         }
+    }
+
+        public bool IsActive()
+    {
+        return didDialogueStart;
+    }
+
+    public void ActiveDialoge()
+    {
+        isPlayerInRange = true;
+        StartDialogue();
     }
 }

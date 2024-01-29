@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Light flashlight;
     private bool isOn = true;    
     private bool showTaskList = false;    
-    [SerializeField] private Manager manager;
+    private Manager manager;
     [SerializeField] private AgarrarInodoro indoroObj;
 
     //--------------------------------------------------------------------------------------
@@ -34,6 +34,11 @@ public class PlayerController : MonoBehaviour
 
     private void Start() 
     {
+        manager = GameObject.Find("Manager").GetComponent<Manager>();
+
+        if(manager == null)
+            Debug.Log("Error: No hay un manager asignado");
+        
         if(manager == null)
         {
             Debug.Log("Error: El Manager no esta adjunto con el player Controller");
@@ -60,33 +65,57 @@ public class PlayerController : MonoBehaviour
             showTaskList = !showTaskList;
             manager.ShowTaskList(showTaskList);
         }
-
-        // De Prueba
-        if(Input.GetKey(KeyCode.Z))
-        {
-            manager.FinishedTask(TaskName.GreetTheBoss);
-        }
     }
 
     private void FixedUpdate() 
     {
         Ray camRay = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
         RaycastHit hitInfo;
-        float maxRayDistance = 1f;
+        float maxRayDistance = 2f;
 
         if(Physics.Raycast(camRay, out hitInfo, maxRayDistance))
         {            
+            Debug.DrawRay(camRay.origin, camRay.direction * maxRayDistance, Color.cyan);
             TasksToDo(hitInfo);
         }
         else
         {
-            Debug.DrawRay(camRay.origin, camRay.direction * maxRayDistance, Color.green);
+            Debug.DrawRay(camRay.origin, camRay.direction * maxRayDistance, Color.blue);
             manager.HideInputInformation();
         }
     }
 
     private void TasksToDo(RaycastHit hitInfo)
     {
+        // Talk to Boss
+        if(hitInfo.collider.CompareTag("BossRabbit") && manager.TheTaskIsDone(TaskName.GreetTheBoss) == 0)
+        {
+             manager.ShowInputInformation("F", "Habla con tu Jefe");
+             if(Input.GetButtonDown(InputName.InteractionButton.ToString()))
+             {
+                manager.HideInputInformation();
+                GameObject finalDialoge = GameObject.Find("BossTalk");
+
+                if(finalDialoge != null)
+                {
+                    SistemaDialogo sistemaDialogo = finalDialoge.GetComponent<SistemaDialogo>();
+                    sistemaDialogo.ActiveDialoge();
+                }
+             }
+        }
+
+        // Fix Printer
+        if(hitInfo.collider.CompareTag("Impresora") && manager.TheTaskIsDone(TaskName.FixPrinter) == 0)
+        {
+            manager.ShowInputInformation("F", "Arregla la impresora");
+            if(Input.GetButtonDown(InputName.InteractionButton.ToString()))
+            {
+                manager.FinishedTask(TaskName.FixPrinter);
+                manager.HideInputInformation();
+                manager.EnterFixPrinter();
+            }
+        }
+        
         // Bath Task
         if(hitInfo.collider.CompareTag("Inodoro") && manager.TheTaskIsDone(TaskName.UnplugTheBath) == 0 && indoroObj.PickedObject != null)
         {
@@ -95,9 +124,6 @@ public class PlayerController : MonoBehaviour
                 manager.ShowInputInformation("F", "Destapar el baño");
                 if(Input.GetButtonDown(InputName.InteractionButton.ToString()))
                 {
-                    // Poner animacion de baño
-                    // TaskName.UnplugTheBath
-                    // Task completada
                     StartCoroutine("UnplugTheBathAction");
                 }
             }
@@ -111,6 +137,18 @@ public class PlayerController : MonoBehaviour
             {
                 manager.HideInputInformation();
                 manager.EnterEcuationLife();
+            }
+        }
+
+        // Final Mission Light
+        if(hitInfo.collider.CompareTag("Cilindro") && manager.TheTaskIsDone(TaskName.FinalTaskLight) == 0)
+        {
+            manager.ShowInputInformation("F", "Repara la luz");
+            if(Input.GetButtonDown(InputName.InteractionButton.ToString()))
+            {
+                manager.FixLight();
+                manager.HideInputInformation();
+                StartCoroutine("TurnonTheLight");
             }
         }
     }
@@ -128,13 +166,39 @@ public class PlayerController : MonoBehaviour
 
         Animator animBath = bathObj.GetComponent<Animator>();
 
-        AudioManeger.Play(AudioClipName.Plunger);
+        AudioManeger.Play(AudioClipName.PlungerShortened);
         animBath.SetBool("banana", true);
         
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(4f);
+
+        AudioManeger.Play(AudioClipName.ToiletFlushSOund);
 
         AudioManeger.Play(AudioClipName.BellDone);
         manager.FinishedTask(TaskName.UnplugTheBath);
+    }
+
+    IEnumerator TurnonTheLight()
+    {
+        GameObject turnOn = GameObject.Find("Cylinder");
+
+        if(turnOn != null)
+        {
+            Animator animTurnOn = turnOn.GetComponent<Animator>();
+            animTurnOn.SetBool("Switch", true);
+        }
+        
+        yield return new WaitForSeconds(3f);
+
+        manager.FinishedTask(TaskName.FinalTaskLight);
+
+        // ! Hacer aparecer el asunto del dialogo final
+        GameObject finalDialoge = GameObject.Find("FinalDialoge");
+
+        if(finalDialoge != null)
+        {
+            SistemaDialogo sistemaDialogo = finalDialoge.GetComponent<SistemaDialogo>();
+            sistemaDialogo.ActiveDialoge();
+        }
     }
 
 }

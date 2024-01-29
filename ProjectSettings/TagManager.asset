@@ -12,6 +12,14 @@ TagManager:
   - WinCollider
   - Banana
   - Inodoro
+  - Impresora
+  - Food
+  - Wall
+  - Cilindro
+  - Zombie
+  - Dialaogue
+  - CinemachineTarget
+  - BossRabbit
   layers:
   - Default
   - TransparentFX

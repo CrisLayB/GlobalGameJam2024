@@ -32,6 +32,8 @@ public class AudioManeger : MonoBehaviour
         audioClips.Add(AudioClipName.Plunger, Resources.Load<AudioClip>("Plunger"));
         audioClips.Add(AudioClipName.FlashLightSound, Resources.Load<AudioClip>("FlashLightSound"));
         audioClips.Add(AudioClipName.Yeso, Resources.Load<AudioClip>("Yeso"));
+        audioClips.Add(AudioClipName.PlungerShortened, Resources.Load<AudioClip>("PlungerShortened"));
+        audioClips.Add(AudioClipName.ToiletFlushSOund, Resources.Load<AudioClip>("ToiletFlushSOund"));
     }
 
     /// <summary>

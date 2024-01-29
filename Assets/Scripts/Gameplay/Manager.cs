@@ -4,12 +4,11 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System;
-using UnityStandardAssets.CrossPlatformInput;
 
 public class Manager : MonoBehaviour
 {
-    [SerializeField] private GameObject player, cameraEcuationLife;
-    [SerializeField] private GameObject uiKeyInput, ui_answers_ecuation_life;
+    [SerializeField] private GameObject player, cameraEcuationLife, cameraSnake;
+    [SerializeField] private GameObject uiKeyInput, ui_answers_ecuation_life, ui_snake;
     [SerializeField] private Sprite selectedAnswerSprite, unselectedAnswerSprite;
     [SerializeField] private Image[] uiAnswers;
     private int selected = 0;
@@ -17,6 +16,7 @@ public class Manager : MonoBehaviour
     private float _canSelectAnswer = -1f;
     [SerializeField] private TMP_Text actionText, keyInputText;
     private TaskList taskList;
+    [SerializeField] private GameObject lightWorld;
 
     private void Start() 
     {
@@ -94,6 +94,7 @@ public class Manager : MonoBehaviour
         if(Input.GetButtonDown("Enter"))
         {
             WinningEcuationLife();
+            FinishedTask(TaskName.EcuationLife);
         }
     }
 
@@ -104,13 +105,27 @@ public class Manager : MonoBehaviour
 
     public int TheTaskIsDone(TaskName taskEnum)
     {
-        return taskList.TheTaskIsDone(TaskName.EcuationLife);
+        return taskList.TheTaskIsDone(taskEnum);
     }
 
     public void FinishedTask(TaskName taskEnum)
     {
         AudioManeger.Play(AudioClipName.BellDone);
         taskList.TaskAllreadyDone(taskEnum);
+    }
+
+    public void EnterFixPrinter()
+    {
+        player.SetActive(false);
+        ui_snake.SetActive(true);
+        cameraSnake.SetActive(true);
+    }
+
+    public void OutFixPrinter()
+    {
+        player.SetActive(true);
+        ui_snake.SetActive(false);
+        cameraSnake.SetActive(false);
     }
 
     public void EnterEcuationLife()
@@ -122,8 +137,7 @@ public class Manager : MonoBehaviour
     }
 
     private void WinningEcuationLife()
-    {        
-        FinishedTask(TaskName.EcuationLife);
+    {
         ui_answers_ecuation_life.SetActive(false);
         player.SetActive(true);
         cameraEcuationLife.SetActive(false);
@@ -141,5 +155,10 @@ public class Manager : MonoBehaviour
         uiKeyInput.SetActive(false);
         keyInputText.text = "";
         actionText.text = "";
+    }
+
+    public void FixLight()
+    {
+        lightWorld.SetActive(true);
     }
 }
