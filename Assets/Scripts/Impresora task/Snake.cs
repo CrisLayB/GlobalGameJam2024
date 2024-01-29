@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class Snake : MonoBehaviour
 {
@@ -66,7 +65,8 @@ public class Snake : MonoBehaviour
         }
         if(collision.gameObject.tag == "Wall")
         {
-            SceneManager.LoadScene("TaskImpresora");
+            Manager manager = GameObject.Find("Manager").GetComponent<Manager>();
+            manager.OutFixPrinter();
         }
     }
 

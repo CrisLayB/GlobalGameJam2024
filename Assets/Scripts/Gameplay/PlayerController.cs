@@ -103,6 +103,18 @@ public class PlayerController : MonoBehaviour
                 }
              }
         }
+
+        // Fix Printer
+        if(hitInfo.collider.CompareTag("Impresora") && manager.TheTaskIsDone(TaskName.FixPrinter) == 0)
+        {
+            manager.ShowInputInformation("F", "Arregla la impresora");
+            if(Input.GetButtonDown(InputName.InteractionButton.ToString()))
+            {
+                manager.FinishedTask(TaskName.FixPrinter);
+                manager.HideInputInformation();
+                manager.EnterFixPrinter();
+            }
+        }
         
         // Bath Task
         if(hitInfo.collider.CompareTag("Inodoro") && manager.TheTaskIsDone(TaskName.UnplugTheBath) == 0 && indoroObj.PickedObject != null)

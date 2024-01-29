@@ -7,8 +7,8 @@ using System;
 
 public class Manager : MonoBehaviour
 {
-    [SerializeField] private GameObject player, cameraEcuationLife;
-    [SerializeField] private GameObject uiKeyInput, ui_answers_ecuation_life;
+    [SerializeField] private GameObject player, cameraEcuationLife, cameraSnake;
+    [SerializeField] private GameObject uiKeyInput, ui_answers_ecuation_life, ui_snake;
     [SerializeField] private Sprite selectedAnswerSprite, unselectedAnswerSprite;
     [SerializeField] private Image[] uiAnswers;
     private int selected = 0;
@@ -111,6 +111,20 @@ public class Manager : MonoBehaviour
     {
         AudioManeger.Play(AudioClipName.BellDone);
         taskList.TaskAllreadyDone(taskEnum);
+    }
+
+    public void EnterFixPrinter()
+    {
+        player.SetActive(false);
+        ui_snake.SetActive(true);
+        cameraSnake.SetActive(true);
+    }
+
+    public void OutFixPrinter()
+    {
+        player.SetActive(true);
+        ui_snake.SetActive(false);
+        cameraSnake.SetActive(false);
     }
 
     public void EnterEcuationLife()

@@ -8,7 +8,7 @@ public enum TaskName
 {
     GreetTheBoss,
     UnplugTheBath,
-    CleanTheWindows,
+    FixPrinter,
     PrepareCoffee,
     EcuationLife,
     FinalTaskLight

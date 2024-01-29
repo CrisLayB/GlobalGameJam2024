@@ -212,8 +212,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 3.73}
-  m_Center: {x: 0, y: 0, z: -0.97}
+  m_Size: {x: 1, y: 1, z: 1.97}
+  m_Center: {x: 0, y: 0, z: 0.2}
 --- !u!114 &3016266724416533363
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -604,7 +604,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Saludar Jefe\nDestapar Ba\xF1o\nLimpiar Ventanas\nPreparar Caf\xE9\nEcuaci\xF3n
+  m_text: "Saludar Jefe\nDestapar Ba\xF1o\nArreglar Impresora\nPreparar Caf\xE9\nEcuaci\xF3n
     de la Vida\nEncender Foco"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
