@@ -16,6 +16,7 @@ public class Manager : MonoBehaviour
     private float _canSelectAnswer = -1f;
     [SerializeField] private TMP_Text actionText, keyInputText;
     private TaskList taskList;
+    [SerializeField] private GameObject lightWorld;
 
     private void Start() 
     {
@@ -154,5 +155,10 @@ public class Manager : MonoBehaviour
         uiKeyInput.SetActive(false);
         keyInputText.text = "";
         actionText.text = "";
+    }
+
+    public void FixLight()
+    {
+        lightWorld.SetActive(true);
     }
 }

@@ -10,5 +10,7 @@ public enum AudioClipName
     ElevatorArrives,
     Plunger,
     FlashLightSound,
-    Yeso
+    Yeso,
+    PlungerShortened,
+    ToiletFlushSOund
 }

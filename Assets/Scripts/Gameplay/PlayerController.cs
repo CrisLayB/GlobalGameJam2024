@@ -146,8 +146,9 @@ public class PlayerController : MonoBehaviour
             manager.ShowInputInformation("F", "Repara la luz");
             if(Input.GetButtonDown(InputName.InteractionButton.ToString()))
             {
+                manager.FixLight();
                 manager.HideInputInformation();
-                StartCoroutine("TurnonTheLight");                
+                StartCoroutine("TurnonTheLight");
             }
         }
     }
@@ -165,10 +166,12 @@ public class PlayerController : MonoBehaviour
 
         Animator animBath = bathObj.GetComponent<Animator>();
 
-        AudioManeger.Play(AudioClipName.Plunger);
+        AudioManeger.Play(AudioClipName.PlungerShortened);
         animBath.SetBool("banana", true);
         
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(4f);
+
+        AudioManeger.Play(AudioClipName.ToiletFlushSOund);
 
         AudioManeger.Play(AudioClipName.BellDone);
         manager.FinishedTask(TaskName.UnplugTheBath);
