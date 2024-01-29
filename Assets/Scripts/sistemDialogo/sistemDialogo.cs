@@ -68,6 +68,8 @@ public class SistemaDialogo : MonoBehaviour
 
             if(caseManage == "final")
             {
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
                 SceneManager.LoadScene("InitialCredits");
             }
 
