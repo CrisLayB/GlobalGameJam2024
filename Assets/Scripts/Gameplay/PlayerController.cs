@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Light flashlight;
     private bool isOn = true;    
     private bool showTaskList = false;    
-    [SerializeField] private Manager manager;
+    private Manager manager;
     [SerializeField] private AgarrarInodoro indoroObj;
 
     //--------------------------------------------------------------------------------------
@@ -34,6 +34,11 @@ public class PlayerController : MonoBehaviour
 
     private void Start() 
     {
+        manager = GameObject.Find("Manager").GetComponent<Manager>();
+
+        if(manager == null)
+            Debug.Log("Error: No hay un manager asignado");
+        
         if(manager == null)
         {
             Debug.Log("Error: El Manager no esta adjunto con el player Controller");
@@ -72,15 +77,16 @@ public class PlayerController : MonoBehaviour
     {
         Ray camRay = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
         RaycastHit hitInfo;
-        float maxRayDistance = 1f;
+        float maxRayDistance = 2f;
 
         if(Physics.Raycast(camRay, out hitInfo, maxRayDistance))
         {            
+            Debug.DrawRay(camRay.origin, camRay.direction * maxRayDistance, Color.cyan);
             TasksToDo(hitInfo);
         }
         else
         {
-            Debug.DrawRay(camRay.origin, camRay.direction * maxRayDistance, Color.green);
+            Debug.DrawRay(camRay.origin, camRay.direction * maxRayDistance, Color.blue);
             manager.HideInputInformation();
         }
     }

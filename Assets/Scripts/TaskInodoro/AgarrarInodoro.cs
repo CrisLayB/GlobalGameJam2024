@@ -10,9 +10,19 @@ public class AgarrarInodoro : MonoBehaviour
     private GameObject pickedObject = null;
     private bool interactingWithMachine = false; 
 
+    private Manager manager;
+
     public GameObject PickedObject
     {
         get { return pickedObject; }
+    }
+
+    private void Start() 
+    {
+        manager = GameObject.Find("Manager").GetComponent<Manager>();    
+
+        if(manager == null)
+            Debug.Log("Error: No hay un manager asignado");
     }
 
     void Update()
@@ -38,6 +48,7 @@ public class AgarrarInodoro : MonoBehaviour
         // Recoger la taza al presionar "e" 
         if (other.gameObject.CompareTag("Banana") && pickedObject == null)
         {
+            manager.ShowInputInformation("E", "Agarra la Banana");
             if (Input.GetKey("e"))
             {
                 PickUpObject(other.gameObject);

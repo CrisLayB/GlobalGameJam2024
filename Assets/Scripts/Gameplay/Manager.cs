@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System;
-using UnityStandardAssets.CrossPlatformInput;
 
 public class Manager : MonoBehaviour
 {
@@ -94,6 +93,7 @@ public class Manager : MonoBehaviour
         if(Input.GetButtonDown("Enter"))
         {
             WinningEcuationLife();
+            FinishedTask(TaskName.EcuationLife);
         }
     }
 
@@ -104,7 +104,7 @@ public class Manager : MonoBehaviour
 
     public int TheTaskIsDone(TaskName taskEnum)
     {
-        return taskList.TheTaskIsDone(TaskName.EcuationLife);
+        return taskList.TheTaskIsDone(taskEnum);
     }
 
     public void FinishedTask(TaskName taskEnum)
@@ -122,8 +122,7 @@ public class Manager : MonoBehaviour
     }
 
     private void WinningEcuationLife()
-    {        
-        FinishedTask(TaskName.EcuationLife);
+    {
         ui_answers_ecuation_life.SetActive(false);
         player.SetActive(true);
         cameraEcuationLife.SetActive(false);
